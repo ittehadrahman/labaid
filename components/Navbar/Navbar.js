@@ -59,29 +59,29 @@ export default function Navbar() {
           <nav className="hidden lg:block">
             <ul className="flex space-x-4 text-[#825f8d] font-semibold text-xl">
               <li>
-                <a href="/" className="hover:text-[#514655]">
+                <Link href="/" className="hover:text-[#514655]">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/offers" className="hover:text-[#514655]">
+                <Link href="/offers" className="hover:text-[#514655]">
                   Offers
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/services" className="hover:text-[#514655]">
+                <Link href="/services" className="hover:text-[#514655]">
                   Services
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/doctors" className="hover:text-[#514655]">
+                <Link href="/doctors" className="hover:text-[#514655]">
                   Doctors
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/contact" className="hover:text-[#514655]">
+                <Link href="/contact" className="hover:text-[#514655]">
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
@@ -105,31 +105,31 @@ export default function Navbar() {
           <IoMdClose className="text-[#825f8d] text-4xl" />
         </button>
         <ul className="flex flex-col space-y-1 text-[#825f8d] font-semibold text-xl mt-14 text-center">
-          <a href="/" className="" onClick={closeMenu}>
+          <Link href="/" className="" onClick={closeMenu}>
             <li className="hover:bg-[#514655] hover:text-white h-10 flex justify-center items-center">
               Home
             </li>
-          </a>
-          <a href="/offers" className="" onClick={closeMenu}>
+          </Link>
+          <Link href="/offers" className="" onClick={closeMenu}>
             <li className="hover:bg-[#514655] hover:text-white h-10 flex justify-center items-center">
               Offers
             </li>
-          </a>
-          <a href="/services" className="" onClick={closeMenu}>
+          </Link>
+          <Link href="/services" className="" onClick={closeMenu}>
             <li className="hover:bg-[#514655] hover:text-white h-10 flex justify-center items-center">
               Services
             </li>
-          </a>
-          <a href="/doctors" className="" onClick={closeMenu}>
+          </Link>
+          <Link href="/doctors" className="" onClick={closeMenu}>
             <li className="hover:bg-[#514655] hover:text-white h-10 flex justify-center items-center">
               Doctors
             </li>
-          </a>
-          <a href="/contact" className="" onClick={closeMenu}>
+          </Link>
+          <Link href="/contact" className="" onClick={closeMenu}>
             <li className="hover:bg-[#514655] hover:text-white h-10 flex justify-center items-center">
               Contact
             </li>
-          </a>
+          </Link>
         </ul>
       </div>
     </>

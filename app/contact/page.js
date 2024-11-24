@@ -6,10 +6,11 @@ import {
   FaMapMarkerAlt,
   FaCommentAlt,
 } from "react-icons/fa";
-
+import map from "@/public/images/map.png"
+import Image from "next/image";
 export default function ContactUs() {
   return (
-    <section className="py-12" style={{ backgroundColor: "#f7f5f9" }}>
+    <section className="py-12 md:pt-36 pt-28" style={{ backgroundColor: "#f7f5f9" }}>
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Contact Details Section */}
@@ -32,6 +33,12 @@ export default function ContactUs() {
               <FaEnvelope className="inline-block mr-2" />
               info@labaidgroup.com
             </p>
+            <Image
+                src={map} // Replace with the path to your map image
+                alt="Map of Bangladesh"
+                width={400}
+                height={200}
+              />
           </div>
 
           {/* Contact Form Section */}

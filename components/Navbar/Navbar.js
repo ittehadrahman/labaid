@@ -4,7 +4,7 @@ import Image from "next/image";
 import labaidlogo from "@/public/images/labaidlogo.jpg";
 import { IoIosMenu } from "react-icons/io";
 import { IoMdClose } from "react-icons/io";
-
+import Link from "next/link";
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -36,14 +36,16 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="bg-white text-black p-4">
+      <header className="bg-white text-black md:p-4 p-2 fixed top-0 left-0 right-0 z-50 shadow-md">
         <div className="mx-4 lg:mx-20 flex justify-between items-center">
+          <Link href={`/`}>
           <Image
             src={labaidlogo}
             width={200}
             height={200}
             alt="Labaid Aesthetic"
-          />
+            />
+            </Link>
 
           {/* Burger Icon */}
           <button
@@ -88,9 +90,7 @@ export default function Navbar() {
 
       {/* Sidebar for Mobile */}
       <div
-        className={`fixed inset-0 z-40 bg-black/50 ${
-          isMenuOpen ? "block" : "hidden"
-        }`}
+        className={`fixed inset-0 z-40 bg-black/50 ${isMenuOpen ? "block" : "hidden"}`}
         onClick={closeMenu}
       ></div>
       <div
@@ -100,7 +100,7 @@ export default function Navbar() {
       >
         <button
           onClick={closeMenu}
-          className="absolute top-4 right-4  text-[#825f8d] focus:outline-none hover:rounded-full hover:border-[#825f8d] border border-transparent transition-all ease-in-out"
+          className="absolute top-4 right-4 text-[#825f8d] focus:outline-none hover:rounded-full hover:border-[#825f8d] border border-transparent transition-all ease-in-out"
         >
           <IoMdClose className="text-[#825f8d] text-4xl" />
         </button>

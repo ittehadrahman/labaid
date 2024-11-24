@@ -1,11 +1,10 @@
 "use client";
+import React from "react";
+import Slider from "react-slick";
 import Image from "next/image";
 import Link from "next/link";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const doctors = [
   {
@@ -35,55 +34,60 @@ const doctors = [
     image: "/images/doc1.jpg",
   },
   {
-    name: "Professor Dr. Afzalunnessa Chowdhury",
-    designation: "Gynecologist, Obstetrician & Laparoscopic Surgeon, Former...",
+    name: "Dr. Mahbuba Islam",
+    designation: "Dermatologist, Skin Specialist",
     hospital: "LABAID Specialized Hospital",
-    image: "/images/doc1.jpg",
-  },
-  {
-    name: "Professor Dr. Afzalunnessa Chowdhury",
-    designation: "Gynecologist, Obstetrician & Laparoscopic Surgeon, Former...",
-    hospital: "LABAID Specialized Hospital",
-    image: "/images/doc1.jpg",
+    image: "/images/doc3.jpg",
   },
 ];
 
 const DoctorsSection = () => {
+  // Slider settings
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4, // Show 4 doctors for large screens
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    responsive: [
+      {
+        breakpoint: 1024, // For screens < 1024px
+        settings: { slidesToShow: 3 },
+      },
+      {
+        breakpoint: 768, // For screens < 768px
+        settings: { slidesToShow: 2 },
+      },
+      {
+        breakpoint: 640, // For screens < 640px
+        settings: { slidesToShow: 1 },
+      },
+    ],
+  };
+
   return (
     <section className="py-12 bg-gray-50">
-      <div className="md:mx-20 px-6">
+      <div className="md:mx-20 py-8 px-4">
         <h2 className="text-lg font-semibold text-gray-500 uppercase text-center">
           MEET OUR EXPERIENCED TEAM
         </h2>
         <h1 className="text-3xl font-bold text-gray-800 text-center mb-10">
           Our Dedicated Doctors Team
         </h1>
-        {/* Swiper Slider */}
-        <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
-          navigation
-          pagination={{ clickable: true }}
-          autoplay={{
-            delay: 3000, // Delay between transitions in milliseconds
-            disableOnInteraction: false, // Keeps autoplay running even after user interaction
-          }}
-          loop={true} // Enables looping
-          spaceBetween={50}
-          breakpoints={{
-            640: { slidesPerView: 1 },
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 4 },
-          }}
-        >
+
+        {/* Doctors Slider */}
+        <Slider {...settings} className="w-full">
           {doctors.map((doctor, index) => (
-            <SwiperSlide key={index}>
+            <div key={index} className="p-4">
               <div className="bg-white border border-gray-200 rounded-lg shadow hover:shadow-md transition-shadow duration-300">
                 {/* Doctor Image */}
                 <Image
                   src={doctor.image}
                   alt={doctor.name}
-                  width={200}
-                  height={100}
+                  width={300}
+                  height={300}
                   className="w-full h-72 object-cover rounded-t-lg"
                 />
                 {/* Doctor Details */}
@@ -99,9 +103,11 @@ const DoctorsSection = () => {
                   </p>
                 </div>
               </div>
-            </SwiperSlide>
+            </div>
           ))}
-        </Swiper>
+        </Slider>
+
+        {/* View All Doctors Button */}
         <div className="mt-10 flex justify-center">
           <Link href="/doctors">
             <div className="md:px-6 md:py-3 px-4 py-3 hover:bg-white hover:text-[#825f8d] font-semibold rounded text-white bg-[#825f8d] border border-[#825f8d] transition-all ease-in-out">

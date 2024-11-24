@@ -1,5 +1,5 @@
 import Image from "next/image";
-
+import Link from "next/link";
 // Mock data for doctors
 const doctors = [
   {
@@ -52,8 +52,12 @@ const DoctorPage = ({ params }) => {
   }
 
   return (
-    <section className="py-12 bg-gray-50">
+    <section className="py-12 pt-32 bg-gray-50">
       <div className="md:mx-20 px-6">
+        <h1 className="text-3xl font-bold text-gray-800 mb-8 text-center md:text-start">
+          Doctor
+        </h1>
+
         <div className="flex flex-col md:flex-row items-center gap-8">
           {/* Doctor Image */}
           <Image
@@ -74,6 +78,13 @@ const DoctorPage = ({ params }) => {
             </p>
             <p className="text-gray-700">{doctor.bio}</p>
           </div>
+        </div>
+        <div className="flex justify-center mt-7 md:mt-10 ">
+          <Link href="/doctors">
+            <div className="max-w-52 md:px-6 md:py-3 px-4 py-3 hover:bg-white hover:text-[#825f8d] font-semibold rounded text-white bg-[#825f8d] border border-[#825f8d] transition-all ease-in-out">
+              View All Doctors
+            </div>
+          </Link>
         </div>
       </div>
     </section>

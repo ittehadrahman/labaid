@@ -3,9 +3,9 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FiExternalLink } from "react-icons/fi";
+import { motion } from "framer-motion";
 
 const OtherSections = () => {
-  // Data for tabs and cards
   const data = [
     {
       type: "HEALTH",
@@ -63,7 +63,6 @@ const OtherSections = () => {
     },
   ];
 
-  // Tabs list
   const tabs = [
     "HEALTH",
     "PHARMACEUTICALS",
@@ -72,27 +71,39 @@ const OtherSections = () => {
     "AGRO",
   ];
 
-  // State for the selected tab
   const [selectedTab, setSelectedTab] = useState("HEALTH");
 
-  // Filtered cards based on the selected tab
   const filteredData = data.filter((item) => item.type === selectedTab);
 
   return (
     <section className="py-10 bg-white">
       <div className="md:mx-20 px-4">
-        <h2 className="text-lg font-semibold text-gray-500 text-center">
-          MEET OUR SISTER CONCERNS
-        </h2>
-        <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">
-          Labaid Group
-        </h1>
+        <motion.div
+          initial={{ opacity: 0, y: -50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="text-lg font-semibold text-gray-500 text-center">
+            MEET OUR SISTER CONCERNS
+          </h2>
+          <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">
+            Labaid Group
+          </h1>
+        </motion.div>
 
         {/* Tabs */}
-        <div className="flex flex-col lg:flex-row space-x-0 lg:space-x-4 mb-8">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          className="flex flex-col lg:flex-row space-x-0 lg:space-x-4 mb-8"
+        >
           {tabs.map((tab) => (
-            <button
+            <motion.button
               key={tab}
+              whileHover={{ scale: 1.1 }}
               className={`px-6 py-2 rounded shadow mb-2 lg:mb-0 ${
                 selectedTab === tab
                   ? "bg-[#825f8d] text-white hover:bg-[#4a3651]"
@@ -101,15 +112,26 @@ const OtherSections = () => {
               onClick={() => setSelectedTab(tab)}
             >
               {tab}
-            </button>
+            </motion.button>
           ))}
-        </div>
+        </motion.div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+        >
           {filteredData.map((item, index) => (
-            <div
+            <motion.div
               key={index}
+              initial={{ scale: 0.95 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
               className="relative group bg-white border rounded shadow p-4 text-center overflow-hidden"
             >
               <Image
@@ -119,7 +141,11 @@ const OtherSections = () => {
                 height={150}
                 className="mx-auto mb-4"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-100">
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+                className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-100"
+              >
                 <Link
                   href={item.link}
                   target="_blank"
@@ -129,11 +155,11 @@ const OtherSections = () => {
                     <FiExternalLink />
                   </div>
                 </Link>
-              </div>
+              </motion.div>
               <h3 className="text-lg font-medium">{item.title}</h3>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

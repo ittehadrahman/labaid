@@ -109,7 +109,7 @@ const ServiceSlideshow = () => {
 
       <Link href="/services">
             <div className="max-w-52 md:px-6 md:py-3 px-4 py-3 hover:bg-white hover:text-[#825f8d] font-semibold rounded text-white bg-[#825f8d] border border-[#825f8d] transition-all ease-in-out">
-              View All Doctors
+              View All Services
             </div>
           </Link>
     </div>
